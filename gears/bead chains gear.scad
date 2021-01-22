@@ -7,7 +7,7 @@ ball_diameter = 6*mm;
 links_length = 2*mm;
 links_thickness = 2*mm;
 groove_depth = 1.05;
-vents = 6;
+vents = 5;
 axis = [1,0,0];
 
 //simple calculus
@@ -75,8 +75,6 @@ module gear_1(){//gear for 28BYJ-48-08 stepper axis
 }
 
 //Final Modeling --> TODO: Add other axis models
-//printed in 4 copies
+//printed in 2 copies
 rotate(90, axis) gear_1();
 translate( [0, 70, 0] ) rotate(90, axis) gear_1();
-translate( [70, 0, 0] ) rotate(90, axis) gear_1();
-translate( [70, 70, 0] ) rotate(90, axis) gear_1();
