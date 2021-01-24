@@ -24,7 +24,7 @@ module handle(){
                 translate([-40*mm,0*mm,0]) cube([200*mm,100*mm,ht*2]);
             }
         }
-        translate([-20,60,0]) cube([100,2,ht*2], center=true);
+        translate([-20*mm,60*mm,0]) cube([100*mm,2*mm,ht*2], center=true);
         
         //Change this line to change the axis hole
         translate([56*mm,-2*mm,0]) rotate(90, [0,1,0]) axis_1();
