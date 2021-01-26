@@ -1,18 +1,18 @@
 mm = 1;//scale of the model (base unit)
 
 //gear parameters
-gear_teeth = 12;
-gear_thickness = 12*mm;
-ball_diameter = 6*mm;
+gear_teeth = 40;
+gear_thickness = 8*mm;
+ball_diameter = 2.5*mm;
 links_length = 2*mm;
-links_thickness = 2*mm;
+links_thickness = 0.5*mm;
 groove_depth = 1.05;
 vents = 5;
 axis = [1,0,0];
 
 //simple calculus
 ball_radius = ball_diameter/2;
-gear_radius = gear_teeth*(links_length+ball_diameter)/PI;
+gear_radius = gear_teeth*(links_length+ball_diameter)/PI/2;
 echo(gear_radius*2);
 
 //module to create a cirle of balls (carve the teeth of the gear)
@@ -77,4 +77,4 @@ module gear_1(){//gear for 28BYJ-48-08 stepper axis
 //Final Modeling --> TODO: Add other axis models
 //printed in 2 copies
 rotate(90, axis) gear_1();
-translate( [0, 70, 0] ) rotate(90, axis) gear_1();
+translate( [0, gear_radius*2+10, 0] ) rotate(90, axis) gear_1();
