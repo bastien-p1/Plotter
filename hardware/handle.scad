@@ -3,11 +3,12 @@ mm=1;//initial scale
 pt=8*mm;//part thickness
 pw=45*mm;//part width
 pl=120*mm;//part length
-ht=20*mm;//handle thickness
-hs=1/4;//hole size (proportion)
+ht=40*mm;//handle thickness
+hs=1/3;//hole size (proportion of part width)
 ss=5;//screw size
 nt=3;//nut thickness
 sd=35;//screw distance (in degrees)
+rs = 1;//ring size (proportion of part thickness)
 
 hr=pw*hs;//hole radius
 ns=ss*1.5;//nut size
@@ -51,10 +52,10 @@ module fixation(){
     translate([0, pw/4, pt*0.9]) pin();
 }
 
-module hook(){
-    translate([0,ht/2.8,2/5*ht]) difference(){
-        rotate([0,90,0]) cylinder(r=2/5*ht,h=pw/10,center=true);
-        rotate([0,90,0]) cylinder(r=1/4*ht,h=pw/5,center=true);
+module ring(){
+    translate([0,rs*pt,rs*pt]) difference(){
+        rotate([0,90,0]) cylinder(r=rs*pt,h=pw/10,center=true);
+        rotate([0,90,0]) cylinder(r=rs*pt/1.5,h=pw/5,center=true);
     }
 }
 
@@ -64,7 +65,7 @@ union(){
         translate([0,pl,0]) holes();
     }
     fixation();
-    translate([0, (pl+pw/2)-1, 0]) hook();
+    translate([0, (pl+pw/2)-1, 0]) ring();
 }
 
 
